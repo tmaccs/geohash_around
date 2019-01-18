@@ -44,13 +44,17 @@ class GeoHashAround(object):
 
     def _get_min_lat_unit(self):
         self.min_lat_unit = LAT_RANGE_MAX - LAT_RANGE_MIN
-        for i in range(self.lat_cut_times):
+        i = 0
+        while i < self.lat_cut_times:
+            i += 1
             self.min_lat_unit = self.min_lat_unit / 2.0
 
     def _get_min_long_unit(self):
-        self.min_lat_unit = LONG_RANGE_MAX - LONG_RANGE_MIN
-        for i in range(self.lat_cut_times):
-            self.min_lat_unit = self.min_lat_unit / 2.0
+        self.min_long_unit = LONG_RANGE_MAX - LONG_RANGE_MIN
+        i = 0
+        while i < self.long_cut_times:
+            i += 1
+            self.min_long_unit = self.min_long_unit / 2.0
 
 
 if __name__ == '__main__':
